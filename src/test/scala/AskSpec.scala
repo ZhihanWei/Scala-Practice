@@ -1,4 +1,4 @@
-import akka.actor.{Actor, ActorLogging, ActorRef, ActorSystem, Props}
+import akka.actor.{Actor, ActorLogging, ActorRef, ActorSystem, FSM, Props}
 import akka.testkit.{ImplicitSender, TestKit}
 import org.scalatest.BeforeAndAfterAll
 import akka.pattern.ask
@@ -125,5 +125,4 @@ object AskSpec {
       responseFuture.pipeTo(sender())
     }
   }
-
 }
