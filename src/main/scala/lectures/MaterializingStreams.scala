@@ -15,7 +15,7 @@ object MaterializingStreams extends App {
 
   val source = Source(1 to 10)
   val sink = Sink.reduce[Int]((a, b) => a + b)
-  val sumFuture = source.runWith(sink)
+  val sumFuture = source.toMat(sink)(Keep.right).run()
 
   sumFuture.onComplete {
     case Success(value) => println(s"The sum of all elements is: $value")
